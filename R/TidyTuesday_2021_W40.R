@@ -58,7 +58,7 @@ grouped_year <-  paper_df %>% group_by(program, program_desc, year) %>%
 
 grouped_prgm <- grouped_year %>% 
   mutate(program=glue::glue("{program_desc} ({program})")) %>%
-  group_by(program) %>% mutate(total=sum(n)) %>%decade_fct <- 
+  group_by(program) %>% mutate(total=sum(n)) %>% 
   arrange(year, program) %>%
   mutate(trend=list(n)) %>%
   select(program, trend, total) %>%
